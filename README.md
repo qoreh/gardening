@@ -81,8 +81,6 @@
 
 ---
 ### [ERD]
-
-![ERD](https://github.com/qoreh/gardening/assets/143871233/7a9e5257-05d1-423b-984e-52faa1be29d0)
-
+![ERD](https://github.com/qoreh/gardening/assets/143871233/bb039d85-2108-4c78-84fa-3ec3f2b98112)
 
 
