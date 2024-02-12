@@ -6,14 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
 
 @Entity
 @NoArgsConstructor
@@ -21,7 +16,7 @@ import java.util.Collections;
 @Data
 @Builder
 @Table(name = "user", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
-public class User implements UserDetails {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,46 +31,12 @@ public class User implements UserDetails {
 
     private String phone;
 
-    private String status;
+    private UserStatus status;
 
-    private String role;
+    private UserRole role;
 
-    private LocalDateTime regDate;
+    private LocalDateTime registerDateTime;
 
-    private LocalDateTime updateDate;
+    private LocalDateTime updateDateTime;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(this.role));
-
-    }
-
-    @Override
-    public String getUsername() {
-        return this.getEmail();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        if (this.status.equals(UserStatus.USER_STATUS_ING.getCode())) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
