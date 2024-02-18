@@ -1,6 +1,5 @@
 package com.zerobase.gardening.encyclopedia.entity;
 
-import com.zerobase.gardening.encyclopedia.type.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

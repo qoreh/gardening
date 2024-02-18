@@ -61,7 +61,7 @@ public class ApiController {
             result = Integer.parseInt(totalCount.getValue());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new CustomException(API_ERROR);
         }
 
         return result;
@@ -74,8 +74,7 @@ public class ApiController {
             String url = "http://api.nongsaro.go.kr/service/garden/gardenList?apiKey="
                     + apiKey + "&numOfRows=" + total;
             GardenListResponse response = restTemplate.getForObject(url, GardenListResponse.class);
-            List<GardenListResponse.Item> list = response.getBody().getItems().getItemList();
-            return list;
+            return response.getBody().getItems().getItemList();
 
         } catch (Exception e) {
             throw new CustomException(API_ERROR);

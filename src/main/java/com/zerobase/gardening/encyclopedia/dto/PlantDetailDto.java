@@ -1,12 +1,9 @@
 package com.zerobase.gardening.encyclopedia.dto;
 
-import com.zerobase.gardening.encyclopedia.type.*;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
