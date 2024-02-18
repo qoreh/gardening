@@ -15,6 +15,10 @@ spring:
   jwt:
     secret: ZGF5b25lLXNwcmluZy1ib290LWRpdmlkZW5kLXByb2plY3QtdHV0b3JpYWwtand0LXNlY3JldC1rZXkK
 
+api:
+  key: 20240206CEALQSMDGKEMGAKWYTOULQ
+
+
 
 
 

@@ -1,7 +1,9 @@
 package com.zerobase.gardening.exception;
 
 import com.zerobase.gardening.type.ErrorCode;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
