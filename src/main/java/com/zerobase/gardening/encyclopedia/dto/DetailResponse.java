@@ -24,6 +24,11 @@ public class DetailResponse {
     @Data
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class DetailItem {
+        @XmlElement(name = "cntntsNo")
+        private String cntntsNo;
+
+        private String name;
+
         @XmlElement(name = "plntbneNm")
         private String scientificName;
 

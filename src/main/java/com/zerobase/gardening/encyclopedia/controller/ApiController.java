@@ -35,13 +35,16 @@ public class ApiController {
 
         // 총 식물의 수 가져오기
         int total = getTotal();
+
         // total만큼의 관리번호(cntnts) 리스트업
         List<GardenListResponse.Item> cntntsList = getList(total);
+
         // 관리번호로 식물 상세 정보 불러와서 dto화
         List<DetailResponse.DetailItem> dtoList = getDtoList(cntntsList);
 
         // dto > entity, DB에 저장
         boolean result = apiService.save(dtoList);
+
         return ResponseEntity.ok().body(result);
     }
 
@@ -73,31 +76,31 @@ public class ApiController {
         try {
             String url = "http://api.nongsaro.go.kr/service/garden/gardenList?apiKey="
                     + apiKey + "&numOfRows=" + total;
+            Thread.sleep(5000); // 이 단계 없이 실행하면 502에러 발생
             GardenListResponse response = restTemplate.getForObject(url, GardenListResponse.class);
             return response.getBody().getItems().getItemList();
-
         } catch (Exception e) {
+            e.printStackTrace();
             throw new CustomException(API_ERROR);
         }
-
-
     }
 
     private List<DetailResponse.DetailItem> getDtoList(List<GardenListResponse.Item> cntntsList) {
         String urlStr = "http://api.nongsaro.go.kr/service/garden/gardenDtl?apiKey=" +
                 apiKey + "&cntntsNo=";
-        List<DetailResponse.DetailItem> dtoList = new ArrayList<>();
 
+        List<DetailResponse.DetailItem> dtoList = new ArrayList<>();
         RestTemplate restTemplate = new RestTemplate();
 
-        for (GardenListResponse.Item cntntsNo : cntntsList) {
+        for (GardenListResponse.Item cntnts : cntntsList) {
             int retry = 0;
             int max = 3;
             boolean success = false;
             while (!success && retry < max) {
                 try {
                     DetailResponse detailDto = restTemplate
-                            .getForObject(urlStr + cntntsNo.getCntntsNo(), DetailResponse.class);
+                            .getForObject(urlStr + cntnts.getCntntsNo(), DetailResponse.class);
+                    detailDto.getBody().getItem().setName(cntnts.getCntntsSj());
                     dtoList.add(detailDto.getBody().getItem());
                     success = true;
                 } catch (Exception e) {

@@ -18,6 +18,10 @@ public class PlantEncyclopedia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String cntntsNo;
+
+    private String name;
+
     private String scientificName;
 
     private String englishName;

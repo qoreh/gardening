@@ -32,5 +32,8 @@ public class GardenListResponse {
     public static class Item {
         @XmlElement(name = "cntntsNo")
         private String cntntsNo;
+
+        @XmlElement(name = "cntntsSj")
+        private String cntntsSj;
     }
 }
