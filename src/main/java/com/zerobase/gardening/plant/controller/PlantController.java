@@ -18,8 +18,6 @@ import java.util.List;
 public class PlantController {
     private final PlantService plantService;
 
-    @Value("${cloud.aws.s3.bucket}")
-    private String bucket;
     private final AwsS3Service awsS3Service;
 
     @PostMapping("/plant/registration")
