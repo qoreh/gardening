@@ -16,7 +16,10 @@ public enum ErrorCode {
     PLANT_NOT_FOUND(HttpStatus.BAD_REQUEST, "등록되지 않은 식물입니다."),
     UNREGISTERED_IN_PLANT_ENCYCLOPEDIA(HttpStatus.BAD_REQUEST, "식물도감에 등록되지 않은 식물입니다."),
     FILE_EXTENSION_ERROR(HttpStatus.BAD_REQUEST, "잘못된 형식의 파일입니다."),
-    FILE_UPLOAD_FAILURE(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다.")
+    FILE_UPLOAD_FAILURE(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다."),
+    EVENT_NOT_FOUND(HttpStatus.BAD_REQUEST, "등록되지 않은 이벤트입니다."),
+    EVENT_CHECKED_UPDATE_FAILURE(HttpStatus.INTERNAL_SERVER_ERROR, "변경에 실패했습니다."),
+    EVENT_DATE_ERROR(HttpStatus.BAD_REQUEST, "현재시점 이전 날짜는 이벤트 등록이 불가능합니다.")
     ;
 
 
