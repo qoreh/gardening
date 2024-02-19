@@ -18,7 +18,17 @@ spring:
 api:
   key: 20240206CEALQSMDGKEMGAKWYTOULQ
 
-
-
+cloud:
+  aws:
+    s3:
+      bucket: qorehbucket
+    credentials:
+      access-key: AKIAV5F35FRO2RFGUJHF
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
 
 

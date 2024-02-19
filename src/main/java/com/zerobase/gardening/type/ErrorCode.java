@@ -13,6 +13,10 @@ public enum ErrorCode {
     ALREADY_WITHDRAW_USER(HttpStatus.BAD_REQUEST, "이미 탈퇴한 회원입니다."),
     USER_NOT_FOUND(HttpStatus.BAD_REQUEST, "존재하지 않는 회원입니다."),
     API_ERROR(HttpStatus.BAD_GATEWAY, "API 호출에 실패하였습니다. 잠시후 다시 시도해주세요."),
+    PLANT_NOT_FOUND(HttpStatus.BAD_REQUEST, "등록되지 않은 식물입니다."),
+    UNREGISTERED_IN_PLANT_ENCYCLOPEDIA(HttpStatus.BAD_REQUEST, "식물도감에 등록되지 않은 식물입니다."),
+    FILE_EXTENSION_ERROR(HttpStatus.BAD_REQUEST, "잘못된 형식의 파일입니다."),
+    FILE_UPLOAD_FAILURE(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다.")
     ;
 
 
