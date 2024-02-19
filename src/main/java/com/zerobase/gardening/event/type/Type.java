@@ -12,6 +12,6 @@ public enum Type {
     PRUNING("가지치기"),
     ETC("기타");
 
-    private String code;
+    private final String code;
 
 }
